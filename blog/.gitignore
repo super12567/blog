@@ -1,3 +1,5 @@
 *~
 _pyscache_
 *.pyc
+00*.py
+.*

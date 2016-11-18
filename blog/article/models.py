@@ -27,4 +27,4 @@ class Book(models.Model):
     printversion = models.IntegerField(default=0)
     price = models.IntegerField(default=0)
     def __str__(self):
-        return self.book
+        return self.titles

@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from article.models import Article, Comment
+from article.forms import ArticleForm
 
 def article(request):
     '''
@@ -15,3 +17,16 @@ def article(request):
         itemsList.append(items)
     context = {'itemsList':itemsList}
     return render(request, 'article/article.html',context)
+
+
+def articleCreate(request):
+    '''
+    Create a new article instance
+    1 If method is GET, render an empty form
+    2 . If method is POST, perform form validation. Display error messages if the form is invalid
+    3. Save the form to the model and redirect to the article page
+    '''
+    template = 'article/articleCreate.html'
+    if request.method == 'GET':
+        return render(request, template, {'articleForm':ArticleForm()})
+        

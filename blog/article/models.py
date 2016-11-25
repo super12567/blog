@@ -19,3 +19,5 @@ class Comment(models.Model):
     def __str__(self):
         return self.article.title + '-' + str(self.id)
 
+
+    
